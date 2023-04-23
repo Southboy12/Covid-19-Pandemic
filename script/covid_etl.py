@@ -29,10 +29,7 @@ def extract_data(url) ->pd.DataFrame:
 def transform(df: pd.DataFrame) -> Path:
     """Set ObservationDate as datetype and write the transformed date to a csv file"""
 
-    df['ObservationDate'] = pd.to_datetime(df.ObservationDate)
-    print(df.info())
-    print(df.head())
-    print(df.Confirmed.sum())
+    df['ObservationDate'] = pd.to_datetime(df.ObservationDate) 
     transformed_path = './data/transformed_covid_data.csv'
     df.to_csv(transformed_path, index=False)
     print('Data successfully transformed and written to csv file')
